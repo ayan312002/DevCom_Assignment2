@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% load static %}
+{% block content %}
+    <div class="row">
+
+            {% for article in art %}
+
+                    {% include "blog/article_card.html" %}
+
+            {% endfor %}
+
+    </div>
+{% endblock content %}
+
+
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ayan's Blog</title>
+    <base a href="http://127.0.0.1:8000/">
+    {% load static %}
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="{% static "css/materialize.css" %}" media="screen,projection"/>
+    <link rel="stylesheet" href="{% static "css/footer_down.css" %}">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="{% static "js/materialize.min.js" %}"></script>
+</head>
+
+
+<nav>
+    <div class="nav-wrapper blue darken-4">
+        <div class = "nav-wrapper container">
+            <a href="#" class="brand-logo">
+                {% if user.is_authenticated %}
+                    {{ user.get_full_name }}
+                {% else %}
+                Blogs
+                {% endif %}
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+
+                {% if user.is_authenticated %}
+                    <li><a href="">Home<span class="new badge " data-badge-caption="">5</span></a></li>
+                    <li><a href="{% url 'blog:user' user.pk %}">Articles By You</a></li>
+                    <li><a href="new">New Article</a></li>
+                    <li><a href="/logout">Logout</a></li>
+
+                {% else %}
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<body>
+<div class="content" >
+<main>
+    {% if messages %}
+        {% for message in messages %}
+
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <script>M.toast({html: "{{message}}", classes: 'blue '});</script>
+                {% endif %}
+
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <script>M.toast({html: "{{message}}", classes: 'red '});</script>
+                {% endif %}
+
+        {% endfor %}
+    {% endif %}
+
+    <div class="container" >
+        {% block content %}
+        {% endblock %}
+    </div>
+</main>
+</div>
+<br>
+
+<footer class="page-footer blue darken-4" >
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Unnecessary Footer Content</h5>
+                <p class="grey-text text-lighten-4">Uses footer_down.css to keep the damn footer where it belongs.
+                DOWN</p>
+                <p>Thanks to
+                <a href="https://css-tricks.com/couple-takes-sticky-footer/">this</a>
+                </p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2020 Copyright Blah Blah
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

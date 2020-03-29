@@ -1,0 +1,25 @@
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
+@font-face {
+    font-family:'CustomFont';
+    src: url(fonts/Custom_Font.ttf) format("truetype");
+}
+div.FontMarket {
+    font-family: 'CustomFont', Arial, sans-serif;
+    font-weight:normal;
+    font-style:normal;
+    font-size: 120%;
+}
+.link { color: #FF0000; } /* CSS link color (red) */
+.link:hover { color: #00FF00; } /* CSS link hover (green) */
