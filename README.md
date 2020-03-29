@@ -11,4 +11,7 @@ Some more feature/ui changes can be implemented like
 7) Edit Profile 
 8) More Flexibility in editor of article Content
 
+Also i have to restructure the project into a better readable form.
+
 Note:This project uses materialise CSS for design
+And i have opted out of bootstrap since i didnt want to use too much of 3rd party library
