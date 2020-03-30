@@ -23,3 +23,9 @@ div.FontMarket {
 }
 .link { color: #FF0000; } /* CSS link color (red) */
 .link:hover { color: #00FF00; } /* CSS link hover (green) */
+
+
+#id_article_content {
+    width: 300px;
+    height: 200px;
+}

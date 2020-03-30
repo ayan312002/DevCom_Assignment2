@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.forms import Textarea
 
 from blog.models import Article
 
@@ -18,4 +19,11 @@ class CustomSignUpForm(UserCreationForm):
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
+        article_content = forms.TimeField(widget=forms.Textarea(attrs={'size':'20',
+                                                                       'style':'resize:none;'}))
+        widgets = {'article_content': forms.Textarea(attrs={'rows': 6,
+                                                            'size': '20',
+                                                   'cols': 22,
+                                                   'style': 'margin: 0px; height: 500px; width: 1280px;'}),
+                   }
         fields = ['article_title', 'article_content']
