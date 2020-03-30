@@ -9,7 +9,7 @@ Some more feature/ui changes can be implemented like
 5) contact us page
 6) View Articles By Author
 7) Edit Profile 
-8) More Flexibility in editor of article Content
+8) More Flexibility in editor of article Content(It now supports HTML formatted content , preview button is coming soon)
 
 Also i have to restructure the project into a better readable form.
 
